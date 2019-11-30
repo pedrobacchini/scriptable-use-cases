@@ -221,10 +221,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 64004088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37823d72a0395824d817b3e74fad5cd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 43f22e8f6cd1d43829baa0da83937f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 910408880}
+  textComponent: {fileID: 910408880}
+  startingState: {fileID: 11400000, guid: 09b80ab754cb643828dd88a7eea0c41f, type: 2}
 --- !u!4 &64004090
 Transform:
   m_ObjectHideFlags: 0
