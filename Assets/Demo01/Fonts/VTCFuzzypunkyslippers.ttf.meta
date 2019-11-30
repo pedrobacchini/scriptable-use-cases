@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c8da4eb277fb4afbb5a35d3f0d8f561
+guid: eaa7fbf09524048b28b1226132f4cc53
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Dark of the Moon
+  fontName: VTC FuzzyPunkySlippers
   fontNames:
-  - Dark of the Moon
+  - VTC FuzzyPunkySlippers
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
