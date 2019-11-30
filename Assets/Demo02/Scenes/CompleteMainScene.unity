@@ -503,6 +503,24 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010664991992, guid: 312c52d27be2d2d42acea3ccebc4694b,
+        type: 3}
+      propertyPath: DestructionSequence
+      value: 
+      objectReference: {fileID: 11400000, guid: df57e704a31eb874da643b01d1447aea,
+        type: 2}
+    - target: {fileID: 114000011691931318, guid: 312c52d27be2d2d42acea3ccebc4694b,
+        type: 3}
+      propertyPath: DestructionSequence
+      value: 
+      objectReference: {fileID: 11400000, guid: 069e42e91660c3d4ea4c0c5664230b11,
+        type: 2}
+    - target: {fileID: 114000013309909884, guid: 312c52d27be2d2d42acea3ccebc4694b,
+        type: 3}
+      propertyPath: DestructionSequence
+      value: 
+      objectReference: {fileID: 11400000, guid: 069e42e91660c3d4ea4c0c5664230b11,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 3}
 --- !u!1 &1200216809
