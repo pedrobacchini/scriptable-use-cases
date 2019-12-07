@@ -1,4 +1,4 @@
-﻿using TMPro;
+﻿using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,14 +7,11 @@ public class GameSession : MonoBehaviour
     // Configure parameters
     [Range(0.1f, 10f)] [SerializeField] private float gameSpeed = 1f;
     [SerializeField] private int pointsPerBlockDestroyed = 80;
-    [SerializeField] private TextMeshProUGUI scoreText = null;
-    [SerializeField] private TextMeshProUGUI velocityText = null;
-    [SerializeField] private TextMeshProUGUI livesText = null;
     [SerializeField] private bool autoPlay = false;
     
     // State variables
-    private int _currentScore = 0;
-    private int _currentLives = 0;
+    public readonly ReactiveProperty<int> _currentScore = new ReactiveProperty<int>(0);
+    public readonly ReactiveProperty<int> _currentLives = new ReactiveProperty<int>(0);
 
     // Singleton DontDestroyOnLoad
     private void Awake()
@@ -32,8 +29,6 @@ public class GameSession : MonoBehaviour
     private void Start()
     {
         Cursor.visible = false;
-        scoreText.text = _currentScore.ToString();
-        livesText.text = _currentLives.ToString();
     }
 
     // Update is called once per frame
@@ -44,18 +39,12 @@ public class GameSession : MonoBehaviour
 
     public void AddToScore()
     {
-        _currentScore += pointsPerBlockDestroyed;
-        scoreText.text = _currentScore.ToString();
+        _currentScore.Value += pointsPerBlockDestroyed;
     }
 
     public void ResetGame()
     {
         Destroy(gameObject);
-    }
-
-    public void UpdateVelocity(float velocity)
-    {
-        velocityText.text = velocity.ToString();
     }
 
     public bool IsAutoPlayEnable()
@@ -65,14 +54,13 @@ public class GameSession : MonoBehaviour
 
     public void AddLive()
     {
-        _currentLives++;
-        livesText.text = _currentLives.ToString();
+        _currentLives.Value++;
     }
 
     public void TriggerLoseCollider()
     {
-        _currentLives--;
-        if (_currentLives < 0)
+        _currentLives.Value--;
+        if (_currentLives.Value < 0)
         {
             SceneManager.LoadScene("Game Over Block");
             Cursor.visible = true;
@@ -80,7 +68,6 @@ public class GameSession : MonoBehaviour
         else
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            livesText.text = _currentLives.ToString();
         }
     }
 }

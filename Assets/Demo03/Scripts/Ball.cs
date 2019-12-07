@@ -16,15 +16,12 @@ public class Ball : MonoBehaviour
     // Cached component references
     private Rigidbody2D _rigidbody2D;
     private AudioSource _audioSource;
-    private GameSession _gameSession;
 
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
-        _gameSession = FindObjectOfType<GameSession>();
 
-        _gameSession.UpdateVelocity(_rigidbody2D.velocity.magnitude);
         _paddleToBallVector = transform.position - paddle.transform.position;
     }
 
@@ -52,7 +49,6 @@ public class Ball : MonoBehaviour
         if (!_hasStarted) return;
         TriggerSfxEffect();
         AddRandomFactorVelocity();
-        _gameSession.UpdateVelocity(_rigidbody2D.velocity.magnitude);
     }
 
     private void AddRandomFactorVelocity()
