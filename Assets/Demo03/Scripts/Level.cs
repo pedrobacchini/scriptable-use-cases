@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+﻿using Demo03.Scripts;
+using UnityEngine;
 
 public class Level : MonoBehaviour
 {
     // Cached component references
     private SceneLoader _sceneLoader;
-    private GameSession _gameSession;
 
     // State variables
     [SerializeField] private int breakableBlocks = 0; //TODO only serialized for debug purpose
@@ -12,7 +12,6 @@ public class Level : MonoBehaviour
     private void Start()
     {
         _sceneLoader = FindObjectOfType<SceneLoader>();
-        _gameSession = FindObjectOfType<GameSession>();
     }
 
     public void CountBreakableBlock()
@@ -25,6 +24,6 @@ public class Level : MonoBehaviour
         breakableBlocks--;
         if (breakableBlocks > 0) return;
         _sceneLoader.LoadNextScene();
-        _gameSession.AddLive();
+        GameSessionScritableObject.Instance.AddLive();
     }
 }

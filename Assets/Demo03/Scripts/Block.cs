@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Demo03.Scripts;
+using UnityEngine;
 
 public class Block : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class Block : MonoBehaviour
 
     // Cached component references
     private Level _level;
-    private GameSession _gameSession;
 
     // State variables
     [SerializeField] private int timesHits = 0; //TODO only serialized for debug purpose
@@ -20,7 +20,6 @@ public class Block : MonoBehaviour
         _maxHits = hitsSprites.Length + 1;
         
         _level = FindObjectOfType<Level>();
-        _gameSession = FindObjectOfType<GameSession>();
 
         if (CompareTag("Breakable")) _level.CountBreakableBlock();
     }
@@ -62,7 +61,7 @@ public class Block : MonoBehaviour
         TriggerVfxEffect();
         Destroy(gameObject);
         _level.BlockDestroyed();
-        _gameSession.AddToScore();
+        GameSessionScritableObject.Instance.AddToScore();
     }
 
     private void TriggerSfxEffect()
